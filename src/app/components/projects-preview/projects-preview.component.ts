@@ -24,35 +24,35 @@ export class ProjectsPreviewComponent implements AfterViewInit {
   projects: Project[] = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
-      description: 'A modern, full-featured e-commerce platform built with Angular and Node.js. Features real-time inventory, AI-powered recommendations, and seamless checkout.',
-      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop',
-      tags: ['Angular', 'Node.js', 'MongoDB', 'Stripe'],
-      color: '#7c3aed'
-    },
-    {
-      id: 2,
-      title: 'Analytics Dashboard',
-      description: 'Real-time data visualization dashboard with interactive charts, custom widgets, and automated reporting. Built for enterprise-scale data processing.',
+      title: 'Amadeus Revenue Analytics',
+      description: 'Revenue management platform used by 10+ airlines to optimise pricing strategies and monitor booking trends. Interactive dashboards navigating 100k+ documents from Oracle and MongoDB.',
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
-      tags: ['Angular', 'D3.js', 'WebSockets', 'PostgreSQL'],
+      tags: ['Angular', 'D3.js', 'Java', 'Oracle', 'MongoDB'],
       color: '#06b6d4'
     },
     {
+      id: 2,
+      title: 'Zetes Logistics Platform',
+      description: '8 logistics dashboards consolidated into a single Angular app using Web Components. Reusable grid component adopted across 10+ internal projects for 2 major clients and 100+ users.',
+      image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=600&fit=crop',
+      tags: ['Angular', 'Web Components', 'C#', 'Azure DevOps'],
+      color: '#7c3aed'
+    },
+    {
       id: 3,
-      title: 'Social Media App',
-      description: 'Feature-rich social platform with real-time messaging, story sharing, and content creation tools. Optimized for performance and engagement.',
-      image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=600&fit=crop',
-      tags: ['Angular', 'Firebase', 'RxJS', 'PWA'],
+      title: 'Jingle Jangle',
+      description: 'Real-time audio analysis using Fourier transforms — extracts notes from a microphone stream and converts them to MIDI. Built during Erasmus at Aalto University.',
+      image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=600&fit=crop',
+      tags: ['Python', 'React', 'D3.js', 'Fourier analysis'],
       color: '#ec4899'
     },
     {
       id: 4,
-      title: 'AI Content Platform',
-      description: 'Next-generation content creation platform powered by AI. Includes automated writing, image generation, and smart content optimization.',
-      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop',
-      tags: ['Angular', 'OpenAI', 'Python', 'Redis'],
-      color: '#f59e0b'
+      title: 'Smart Mazda OBD Dashboard',
+      description: 'OBD interface for real-time car diagnostics — speed, RPM, engine load, temperature — visualised with D3.js and streamed to a Node.js server. Personal project from Aalto.',
+      image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&h=600&fit=crop',
+      tags: ['React', 'D3.js', 'Node.js', 'OBD'],
+      color: '#10b981'
     }
   ];
 

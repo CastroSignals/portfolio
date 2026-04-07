@@ -12,7 +12,7 @@ export class HeroComponent implements OnInit, AfterViewInit {
   @ViewChild('heroCanvas') canvasRef!: ElementRef<HTMLCanvasElement>;
   
   name = 'Gabriel Castro';
-  roles = ['Frontend Developer', 'UI/UX Enthusiast', 'Creative Coder', 'Angular Expert'];
+  roles = ['Software Engineer', 'Angular Developer', 'Full Stack Developer', 'Data Enthusiast'];
   currentRoleIndex = 0;
   displayedRole = '';
   isTyping = true;
