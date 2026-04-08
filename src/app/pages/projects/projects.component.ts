@@ -1,10 +1,6 @@
 import {
   Component,
-  AfterViewInit,
-  OnDestroy,
-  HostListener,
   signal,
-  computed,
   inject,
   ChangeDetectionStrategy
 } from '@angular/core';
@@ -19,55 +15,13 @@ import { ProjectService } from '../../services/project.service';
   styleUrl: './projects.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProjectsComponent implements AfterViewInit, OnDestroy {
+export class ProjectsComponent {
   private readonly projectService = inject(ProjectService);
 
-  readonly scrollY = signal(0);
   readonly expandedProject = signal<number | null>(null);
 
   readonly timeline = this.projectService.timeline;
   readonly detailedProjects = this.projectService.detailedProjects;
-
-  private observer: IntersectionObserver | null = null;
-  private revealTimeoutId: ReturnType<typeof setTimeout> | null = null;
-
-  @HostListener('window:scroll')
-  onScroll() {
-    this.scrollY.set(window.scrollY);
-  }
-
-  ngAfterViewInit() {
-    this.initScrollReveal();
-  }
-
-  ngOnDestroy() {
-    if (this.observer) {
-      this.observer.disconnect();
-      this.observer = null;
-    }
-    if (this.revealTimeoutId !== null) {
-      clearTimeout(this.revealTimeoutId);
-      this.revealTimeoutId = null;
-    }
-  }
-
-  private initScrollReveal() {
-    this.observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '-50px' }
-    );
-
-    const obs = this.observer;
-    this.revealTimeoutId = setTimeout(() => {
-      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-    }, 100);
-  }
 
   toggleProject(id: number) {
     this.expandedProject.update(current => current === id ? null : id);
@@ -75,5 +29,14 @@ export class ProjectsComponent implements AfterViewInit, OnDestroy {
 
   getTypeIcon(type: string): string {
     return this.projectService.getTypeIcon(type);
+  }
+
+  getTypeLabel(type: string): string {
+    switch (type) {
+      case 'work': return 'Work';
+      case 'project': return 'Project';
+      case 'education': return 'Education';
+      default: return '';
+    }
   }
 }

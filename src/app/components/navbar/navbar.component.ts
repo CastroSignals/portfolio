@@ -12,6 +12,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class NavbarComponent {
   readonly isScrolled = signal(false);
   readonly isMobileMenuOpen = signal(false);
+  readonly isDarkTheme = signal(true);
 
   readonly navLinks = [
     { path: '/', label: 'Home', exact: true },
@@ -29,5 +30,11 @@ export class NavbarComponent {
 
   closeMobileMenu() {
     this.isMobileMenuOpen.set(false);
+  }
+
+  toggleTheme() {
+    this.isDarkTheme.update(dark => !dark);
+    const theme = this.isDarkTheme() ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', theme);
   }
 }

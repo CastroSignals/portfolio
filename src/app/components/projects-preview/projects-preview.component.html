@@ -1,82 +1,47 @@
 <section id="projects" class="projects-preview">
     <div class="container">
         <!-- Section Header -->
-        <div class="projects-preview__header reveal">
-            <span class="projects-preview__label">Featured Work</span>
-            <h2 class="projects-preview__title">
-                Selected <span class="gradient-text-animated">Work</span>
-            </h2>
+        <div class="projects-preview__header">
+            <span class="projects-preview__label">Selected Work</span>
+            <h2 class="projects-preview__title">Projects</h2>
             <p class="projects-preview__subtitle">
-                Dashboards, data tools, and real-time visualizations — built for real users at real scale.
+                Dashboards, data tools, and real-time visualisations — built for real users at real scale.
             </p>
         </div>
 
         <!-- Projects Grid -->
         <div class="projects-preview__grid">
             @for (project of projects(); track project.id; let i = $index) {
-            <article #projectCard class="project-card reveal" [style.--accent-color]="project.color"
-                [style.animation-delay]="(i * 0.15) + 's'">
-                <!-- Card Glow Effect -->
-                <div class="project-card__glow"></div>
+            <article class="project-card">
+                <!-- Index number -->
+                <span class="project-card__index">{{ (i + 1).toString().padStart(2, '0') }}</span>
 
-                <!-- Card Content -->
-                <div class="project-card__content">
-                    <!-- Visual Header -->
-                    <div class="project-card__image-wrapper" [style.--card-color]="project.color">
-                        @if (project.image) {
-                            <img [src]="project.image" [alt]="project.title" class="project-card__image" loading="lazy" />
-                        } @else {
-                            <div class="project-card__gradient-bg">
-                                <svg class="project-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-                                </svg>
-                            </div>
+                <!-- Info -->
+                <div class="project-card__info">
+                    <h3 class="project-card__title">{{ project.title }}</h3>
+                    <p class="project-card__description">{{ project.description }}</p>
+
+                    <!-- Tags -->
+                    <div class="project-card__tags">
+                        @for (tag of project.tags; track tag) {
+                        <span class="project-card__tag">{{ tag }}</span>
                         }
-                        <div class="project-card__image-overlay"></div>
                     </div>
 
-                    <!-- Info -->
-                    <div class="project-card__info">
-                        <h3 class="project-card__title">{{ project.title }}</h3>
-                        <p class="project-card__description">{{ project.description }}</p>
-
-                        <!-- Tags -->
-                        <div class="project-card__tags">
-                            @for (tag of project.tags; track tag) {
-                            <span class="project-card__tag">{{ tag }}</span>
-                            }
-                        </div>
-
-                        <!-- Link -->
-                        <a [routerLink]="['/projects']" class="project-card__link">
-                            <span>View Details</span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7" />
-                            </svg>
-                        </a>
-                    </div>
+                    <!-- Link -->
+                    <a [routerLink]="['/projects']" class="project-card__link">
+                        View Details &rarr;
+                    </a>
                 </div>
-
-                <!-- Decorative Border -->
-                <div class="project-card__border"></div>
             </article>
             }
         </div>
 
         <!-- View All Button -->
-        <div class="projects-preview__footer reveal">
+        <div class="projects-preview__footer">
             <a routerLink="/projects" class="projects-preview__cta">
-                <span>Explore All Projects</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
+                All Projects &rarr;
             </a>
         </div>
-    </div>
-
-    <!-- Background Decoration -->
-    <div class="projects-preview__bg">
-        <div class="projects-preview__bg-grid"></div>
-        <div class="projects-preview__bg-glow"></div>
     </div>
 </section>
