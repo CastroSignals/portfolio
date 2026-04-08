@@ -1,97 +1,88 @@
-import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {
+  Component,
+  AfterViewInit,
+  OnDestroy,
+  ElementRef,
+  ViewChild,
+  ChangeDetectionStrategy,
+  inject,
+  NgZone
+} from '@angular/core';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './hero.component.html',
-  styleUrl: './hero.component.scss'
+  styleUrl: './hero.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HeroComponent implements OnInit, AfterViewInit {
+export class HeroComponent implements AfterViewInit, OnDestroy {
   @ViewChild('heroCanvas') canvasRef!: ElementRef<HTMLCanvasElement>;
-  
-  name = 'Gabriel Castro';
-  roles = ['Software Engineer', 'Angular Developer', 'Full Stack Developer', 'Data Enthusiast'];
-  currentRoleIndex = 0;
-  displayedRole = '';
-  isTyping = true;
-  
+
+  readonly name = 'Gabriel Castro';
+  readonly tagline = 'I build the dashboards airlines run their revenue on.';
+
   private particles: Particle[] = [];
   private ctx!: CanvasRenderingContext2D;
-  private animationId!: number;
+  private animationId: number | null = null;
+  private resizeHandler: (() => void) | null = null;
 
-  ngOnInit() {
-    this.startTypingAnimation();
-  }
+  private readonly ngZone = inject(NgZone);
 
   ngAfterViewInit() {
     this.initParticles();
   }
 
-  private startTypingAnimation() {
-    const typeRole = () => {
-      const currentRole = this.roles[this.currentRoleIndex];
-      
-      if (this.isTyping) {
-        if (this.displayedRole.length < currentRole.length) {
-          this.displayedRole = currentRole.slice(0, this.displayedRole.length + 1);
-          setTimeout(typeRole, 80);
-        } else {
-          this.isTyping = false;
-          setTimeout(typeRole, 2000);
-        }
-      } else {
-        if (this.displayedRole.length > 0) {
-          this.displayedRole = this.displayedRole.slice(0, -1);
-          setTimeout(typeRole, 40);
-        } else {
-          this.isTyping = true;
-          this.currentRoleIndex = (this.currentRoleIndex + 1) % this.roles.length;
-          setTimeout(typeRole, 500);
-        }
-      }
-    };
-    
-    typeRole();
+  ngOnDestroy() {
+    if (this.animationId !== null) {
+      cancelAnimationFrame(this.animationId);
+      this.animationId = null;
+    }
+    if (this.resizeHandler) {
+      window.removeEventListener('resize', this.resizeHandler);
+      this.resizeHandler = null;
+    }
   }
 
   private initParticles() {
     const canvas = this.canvasRef.nativeElement;
     this.ctx = canvas.getContext('2d')!;
-    
-    const resize = () => {
+
+    this.resizeHandler = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
-    
-    resize();
-    window.addEventListener('resize', resize);
-    
+
+    this.resizeHandler();
+    window.addEventListener('resize', this.resizeHandler);
+
     // Create particles
     for (let i = 0; i < 80; i++) {
       this.particles.push(new Particle(canvas.width, canvas.height));
     }
-    
-    this.animate();
+
+    this.ngZone.runOutsideAngular(() => {
+      this.animate();
+    });
   }
 
   private animate = () => {
     const canvas = this.canvasRef.nativeElement;
     this.ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
+
     this.particles.forEach(particle => {
       particle.update(canvas.width, canvas.height);
       particle.draw(this.ctx);
     });
-    
+
     // Draw connections
     this.particles.forEach((p1, i) => {
       this.particles.slice(i + 1).forEach(p2 => {
         const dx = p1.x - p2.x;
         const dy = p1.y - p2.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        
+
         if (distance < 150) {
           this.ctx.beginPath();
           this.ctx.strokeStyle = `rgba(124, 58, 237, ${0.15 * (1 - distance / 150)})`;
@@ -102,7 +93,7 @@ export class HeroComponent implements OnInit, AfterViewInit {
         }
       });
     });
-    
+
     this.animationId = requestAnimationFrame(this.animate);
   };
 }
@@ -121,7 +112,7 @@ class Particle {
     this.size = Math.random() * 3 + 1;
     this.speedX = (Math.random() - 0.5) * 1;
     this.speedY = (Math.random() - 0.5) * 1;
-    
+
     const colors = ['rgba(124, 58, 237, 0.6)', 'rgba(6, 182, 212, 0.6)', 'rgba(236, 72, 153, 0.6)'];
     this.color = colors[Math.floor(Math.random() * colors.length)];
   }

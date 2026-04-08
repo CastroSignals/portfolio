@@ -78,13 +78,17 @@
         max-width: 900px;
     }
 
-    &__greeting {
-        display: inline-block;
-        font-family: var(--font-mono);
-        font-size: 1.1rem;
-        color: var(--accent-secondary);
-        letter-spacing: 0.1em;
+    &__location {
         margin-bottom: var(--space-md);
+    }
+
+    &__location-text {
+        display: inline-block;
+        font-family: var(--font-sans);
+        font-size: 1rem;
+        color: var(--text-secondary);
+        letter-spacing: 0.05em;
+        font-weight: 400;
     }
 
     &__name {
@@ -139,8 +143,9 @@
     // TYPING ROLE
     // ========================================
     &__role {
-        font-family: var(--font-mono);
-        font-size: clamp(1.2rem, 3vw, 1.8rem);
+        font-family: var(--font-display);
+        font-size: clamp(1.3rem, 3vw, 1.9rem);
+        font-weight: 500;
         margin-bottom: var(--space-xl);
         display: flex;
         align-items: center;
@@ -148,29 +153,16 @@
         gap: var(--space-xs);
     }
 
-    &__role-prefix,
-    &__role-suffix {
-        color: var(--text-muted);
-        font-weight: 300;
-    }
-
     &__role-text {
-        min-width: 280px;
-        text-align: left;
-    }
-
-    &__cursor {
-        color: var(--accent-primary);
-        animation: blink 1s step-end infinite;
-        font-weight: 300;
+        text-align: center;
     }
 
     // ========================================
     // DESCRIPTION
     // ========================================
     &__description {
-        font-size: 1.2rem;
-        color: var(--text-secondary);
+        font-size: 1.15rem;
+        color: rgba(255, 255, 255, 0.85);
         max-width: 600px;
         margin: 0 auto var(--space-2xl);
         line-height: 1.8;
@@ -267,7 +259,7 @@
     &__tech-label {
         font-family: var(--font-mono);
         font-size: 0.85rem;
-        color: var(--text-muted);
+        color: var(--text-tertiary);
         text-transform: uppercase;
         letter-spacing: 0.15em;
     }
@@ -347,7 +339,7 @@
 
     &__scroll-text {
         font-size: 0.75rem;
-        color: var(--text-muted);
+        color: var(--text-tertiary);
         text-transform: uppercase;
         letter-spacing: 0.15em;
     }

@@ -1,33 +1,33 @@
-import { Component, HostListener } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, HostListener, signal, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss'
+  styleUrl: './navbar.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavbarComponent {
-  isScrolled = false;
-  isMobileMenuOpen = false;
+  readonly isScrolled = signal(false);
+  readonly isMobileMenuOpen = signal(false);
 
-  navLinks = [
+  readonly navLinks = [
     { path: '/', label: 'Home', exact: true },
     { path: '/projects', label: 'Projects', exact: false }
   ];
 
   @HostListener('window:scroll')
   onScroll() {
-    this.isScrolled = window.scrollY > 50;
+    this.isScrolled.set(window.scrollY > 50);
   }
 
   toggleMobileMenu() {
-    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    this.isMobileMenuOpen.update(open => !open);
   }
 
   closeMobileMenu() {
-    this.isMobileMenuOpen = false;
+    this.isMobileMenuOpen.set(false);
   }
 }
