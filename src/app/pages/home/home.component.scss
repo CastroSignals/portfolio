@@ -1,3 +1,21 @@
 .home {
     min-height: 100vh;
+
+    // Smooth transition between hero and projects sections
+    app-projects-preview {
+        display: block;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(to bottom, transparent, var(--bg-primary));
+            pointer-events: none;
+            z-index: 1;
+        }
+    }
 }

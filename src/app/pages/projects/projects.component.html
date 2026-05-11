@@ -1,26 +1,13 @@
 <main class="projects-page">
     <!-- Hero Section -->
     <section class="projects-hero">
-        <div class="projects-hero__bg">
-            <div class="projects-hero__gradient"></div>
-            <div class="projects-hero__grid"></div>
-        </div>
-
         <div class="container">
             <div class="projects-hero__content">
-                <a routerLink="/" class="projects-hero__back">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M19 12H5M12 19l-7-7 7-7" />
-                    </svg>
-                    <span>Back to Home</span>
-                </a>
+                <a routerLink="/" class="projects-hero__back">&larr; Back</a>
 
-                <h1 class="projects-hero__title fade-in-up">
-                    My <span class="gradient-text-animated">Journey</span> & Work
-                </h1>
-                <p class="projects-hero__subtitle fade-in-up stagger-1">
-                    Exploring my professional timeline and the projects that shaped my career
-                    as a frontend developer.
+                <h1 class="projects-hero__title">Journey &amp; Work</h1>
+                <p class="projects-hero__subtitle">
+                    Professional timeline and the projects that shaped my career as a software engineer.
                 </p>
             </div>
         </div>
@@ -29,25 +16,20 @@
     <!-- Timeline Section -->
     <section class="timeline-section">
         <div class="container">
-            <div class="section-header reveal">
+            <div class="section-header">
                 <span class="section-label">Career Path</span>
-                <h2 class="section-title">Professional Timeline</h2>
+                <h2 class="section-title">Timeline</h2>
             </div>
 
             <div class="timeline">
-                <div class="timeline__line"></div>
-
-                @for (item of timeline; track item.id; let i = $index) {
-                <div class="timeline-item reveal" [class.timeline-item--right]="i % 2 !== 0"
-                    [style.animation-delay]="(i * 0.15) + 's'">
-                    <div class="timeline-item__dot">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path [attr.d]="getTypeIcon(item.type)" />
-                        </svg>
+                @for (item of timeline(); track item.id; let i = $index) {
+                <div class="timeline-item">
+                    <div class="timeline-item__meta">
+                        <span class="timeline-item__year">{{ item.year }}</span>
+                        <span class="timeline-item__type">{{ getTypeLabel(item.type) }}</span>
                     </div>
 
-                    <div class="timeline-item__content glass">
-                        <span class="timeline-item__year">{{ item.year }}</span>
+                    <div class="timeline-item__content">
                         <h3 class="timeline-item__title">{{ item.title }}</h3>
                         <span class="timeline-item__company">{{ item.company }}</span>
                         <p class="timeline-item__description">{{ item.description }}</p>
@@ -67,42 +49,38 @@
     <!-- Detailed Projects Section -->
     <section class="detailed-projects">
         <div class="container">
-            <div class="section-header reveal">
+            <div class="section-header">
                 <span class="section-label">Portfolio</span>
-                <h2 class="section-title">Project Deep Dives</h2>
+                <h2 class="section-title">Deep Dives</h2>
             </div>
 
             <div class="projects-list">
-                @for (project of detailedProjects; track project.id; let i = $index) {
-                <article class="detailed-card reveal" [class.detailed-card--expanded]="expandedProject === project.id"
-                    [style.--project-color]="project.color" [style.animation-delay]="(i * 0.1) + 's'">
-                    <!-- Project Image -->
-                    <div class="detailed-card__image-container">
-                        <img [src]="project.image" [alt]="project.title" class="detailed-card__image" loading="lazy" />
-                        <div class="detailed-card__image-overlay"></div>
-                        <span class="detailed-card__year-badge">{{ project.year }}</span>
-                    </div>
-
-                    <!-- Project Info -->
-                    <div class="detailed-card__info">
-                        <div class="detailed-card__header">
+                @for (project of detailedProjects(); track project.id; let i = $index) {
+                <article class="detailed-card" [class.detailed-card--expanded]="expandedProject() === project.id">
+                    <!-- Project Header -->
+                    <div class="detailed-card__header" (click)="toggleProject(project.id)">
+                        <div class="detailed-card__header-left">
+                            <span class="detailed-card__index">{{ (i + 1).toString().padStart(2, '0') }}</span>
                             <div>
                                 <span class="detailed-card__subtitle">{{ project.subtitle }}</span>
                                 <h3 class="detailed-card__title">{{ project.title }}</h3>
                             </div>
-                            <button class="detailed-card__toggle" (click)="toggleProject(project.id)"
-                                [attr.aria-expanded]="expandedProject === project.id">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M19 9l-7 7-7-7" />
-                                </svg>
+                        </div>
+                        <div class="detailed-card__header-right">
+                            <span class="detailed-card__year">{{ project.year }}</span>
+                            <button class="detailed-card__toggle" [attr.aria-expanded]="expandedProject() === project.id">
+                                {{ expandedProject() === project.id ? '&minus;' : '+' }}
                             </button>
                         </div>
+                    </div>
 
+                    <!-- Expandable content -->
+                    <div class="detailed-card__body">
                         <p class="detailed-card__description">{{ project.longDescription }}</p>
 
                         <!-- Technologies -->
                         <div class="detailed-card__tech">
-                            <h4 class="detailed-card__tech-title">Technologies</h4>
+                            <h4 class="detailed-card__section-title">Technologies</h4>
                             <div class="detailed-card__tech-list">
                                 @for (tech of project.technologies; track tech) {
                                 <span class="detailed-card__tech-badge">{{ tech }}</span>
@@ -112,22 +90,14 @@
 
                         <!-- Features -->
                         <div class="detailed-card__features">
-                            <h4 class="detailed-card__features-title">Key Features</h4>
+                            <h4 class="detailed-card__section-title">Key Features</h4>
                             <ul class="detailed-card__features-list">
                                 @for (feature of project.features; track feature) {
-                                <li>
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>{{ feature }}</span>
-                                </li>
+                                <li>{{ feature }}</li>
                                 }
                             </ul>
                         </div>
                     </div>
-
-                    <!-- Decorative glow -->
-                    <div class="detailed-card__glow"></div>
                 </article>
                 }
             </div>
@@ -135,31 +105,19 @@
     </section>
 
     <!-- Contact CTA -->
-    <section class="contact-cta reveal">
+    <section class="contact-cta">
         <div class="container">
-            <div class="contact-cta__content glass-strong">
+            <div class="contact-cta__content">
                 <h2 class="contact-cta__title">
-                    Let's Build Something <span class="gradient-text-animated">Amazing</span>
+                    Looking for a software engineer in Madrid?
                 </h2>
                 <p class="contact-cta__text">
-                    Interested in working together? I'm always open to discussing new projects
-                    and creative ideas.
+                    Open to new roles and collaborations. Data, dashboards, complex UI — let's talk.
                 </p>
                 <a href="mailto:contact@gabrielcastro.dev" class="contact-cta__button">
-                    <span>Get In Touch</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path
-                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
+                    contact&#64;gabrielcastro.dev &rarr;
                 </a>
             </div>
         </div>
     </section>
-
-    <!-- Parallax Background Elements -->
-    <div class="parallax-bg">
-        <div class="parallax-orb parallax-orb--1" [style.transform]="'translateY(' + (scrollY * 0.3) + 'px)'"></div>
-        <div class="parallax-orb parallax-orb--2" [style.transform]="'translateY(' + (scrollY * -0.2) + 'px)'"></div>
-        <div class="parallax-orb parallax-orb--3" [style.transform]="'translateY(' + (scrollY * 0.15) + 'px)'"></div>
-    </div>
 </main>

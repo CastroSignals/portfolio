@@ -1,0 +1,94 @@
+.footer {
+    padding: var(--space-2xl) 0 var(--space-lg);
+    border-top: 1px solid var(--border-color);
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 var(--space-xl);
+
+        @media (max-width: 768px) {
+            padding: 0 var(--space-md);
+        }
+    }
+
+    &__top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: var(--space-xl);
+
+        @media (max-width: 640px) {
+            flex-direction: column;
+        }
+    }
+
+    &__brand {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+
+    &__logo {
+        font-family: var(--font-mono);
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: var(--text-primary);
+    }
+
+    &__tagline {
+        font-size: 0.85rem;
+        color: var(--text-tertiary);
+        max-width: 300px;
+        line-height: 1.5;
+    }
+
+    &__links {
+        display: flex;
+        gap: var(--space-lg);
+    }
+
+    &__link {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        transition: color var(--transition-fast);
+
+        &:hover {
+            color: var(--accent);
+        }
+    }
+
+    &__divider {
+        height: 1px;
+        background: var(--border-color);
+        margin: var(--space-xl) 0 var(--space-md);
+    }
+
+    &__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-md);
+
+        @media (max-width: 640px) {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+
+    &__copyright {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--text-tertiary);
+    }
+
+    &__built-with {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--text-tertiary);
+    }
+}
