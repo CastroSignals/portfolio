@@ -24,12 +24,12 @@ test.describe('Home (/)', () => {
   test('exposes the LinkedIn and GitHub social links with external attrs', async ({ page }) => {
     await page.goto('/');
     const linkedin = page.getByRole('link', { name: 'LinkedIn', exact: true });
-    await expect(linkedin).toHaveAttribute('href', 'https://linkedin.com/in/gabcas28');
+    await expect(linkedin).toHaveAttribute('href', 'https://linkedin.com/in/castrosignals');
     await expect(linkedin).toHaveAttribute('target', '_blank');
     await expect(linkedin).toHaveAttribute('rel', 'noopener noreferrer');
 
     const github = page.getByRole('link', { name: 'GitHub', exact: true });
-    await expect(github).toHaveAttribute('href', 'https://github.com/gabcas28');
+    await expect(github).toHaveAttribute('href', 'https://github.com/castrosignals');
   });
 
   test('theme toggle flips data-theme on <html>', async ({ page }) => {
