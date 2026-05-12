@@ -1,5 +1,4 @@
-// ESLint flat config for Angular 21 (typescript-eslint + angular-eslint + a11y).
-// Prettier-disabling at the tail so all style decisions are owned by Prettier.
+// Flat config: typescript-eslint + angular-eslint + a11y. Prettier wins on style.
 
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
@@ -47,7 +46,8 @@ export default tseslint.config(
     }
   },
   {
-    files: ['**/*.html'],
+    // Angular component templates only — keep plain HTML out of the template parser.
+    files: ['src/app/**/*.html'],
     extends: [
       ...angular.configs.templateRecommended,
       ...angular.configs.templateAccessibility
