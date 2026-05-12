@@ -1,0 +1,8 @@
+dist/
+.angular/
+node_modules/
+coverage/
+playwright-report/
+test-results/
+*.lock
+package-lock.json

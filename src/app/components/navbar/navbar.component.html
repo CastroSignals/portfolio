@@ -1,73 +1,139 @@
-<nav class="navbar" [class.navbar--scrolled]="isScrolled()">
-    <div class="navbar__container">
-        <!-- Logo -->
-        <a routerLink="/" class="navbar__logo" (click)="closeMobileMenu()">GC</a>
+<nav class="navbar" [class.navbar--scrolled]="isScrolled()" aria-label="Main navigation">
+  <div class="navbar__container">
+    <!-- Logo -->
+    <a
+      routerLink="/"
+      class="navbar__logo"
+      (click)="closeMobileMenu()"
+      aria-label="Gabriel Castro — Home"
+      >GC</a
+    >
 
-        <!-- Desktop Navigation -->
-        <ul class="navbar__links">
-            @for (link of navLinks; track link.path) {
-            <li>
-                <a [routerLink]="link.path" routerLinkActive="navbar__link--active"
-                    [routerLinkActiveOptions]="{exact: link.exact}" class="navbar__link">
-                    {{ link.label }}
-                </a>
-            </li>
-            }
-        </ul>
+    <!-- Desktop Navigation -->
+    <ul class="navbar__links">
+      @for (link of navLinks; track link.path) {
+        <li>
+          <a
+            [routerLink]="link.path"
+            routerLinkActive="navbar__link--active"
+            [routerLinkActiveOptions]="{ exact: link.exact }"
+            class="navbar__link"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
 
-        <!-- Right side: social + theme toggle + contact -->
-        <div class="navbar__right">
-            <div class="navbar__social">
-                <a href="https://linkedin.com/in/gabcas28" target="_blank" rel="noopener noreferrer" class="navbar__social-link" aria-label="LinkedIn">Li</a>
-                <a href="https://github.com/gabcas28" target="_blank" rel="noopener noreferrer" class="navbar__social-link" aria-label="GitHub">Gh</a>
-            </div>
+    <!-- Right side: social + theme toggle + contact -->
+    <div class="navbar__right">
+      <div class="navbar__social">
+        <a
+          href="https://linkedin.com/in/castrosignals"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="navbar__social-link"
+          aria-label="LinkedIn"
+          >Li</a
+        >
+        <a
+          href="https://github.com/castrosignals"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="navbar__social-link"
+          aria-label="GitHub"
+          >Gh</a
+        >
+      </div>
 
-            <!-- Theme Toggle -->
-            <button class="navbar__theme-toggle" (click)="toggleTheme()" [attr.aria-label]="isDarkTheme() ? 'Switch to light mode' : 'Switch to dark mode'">
-                {{ isDarkTheme() ? 'Light' : 'Dark' }}
-            </button>
+      <!-- Theme Toggle -->
+      <button
+        class="navbar__theme-toggle"
+        (click)="toggleTheme()"
+        [attr.aria-label]="isDarkTheme() ? 'Switch to light mode' : 'Switch to dark mode'"
+      >
+        {{ isDarkTheme() ? 'Light' : 'Dark' }}
+      </button>
 
-            <!-- Contact Button -->
-            <a href="mailto:contact@gabrielcastro.dev" class="navbar__contact">
-                contact&#64;gabrielcastro.dev
-            </a>
-        </div>
+      <!-- Contact Button -->
+      <a
+        href="mailto:castrosignals@gmail.com"
+        class="navbar__contact"
+        aria-label="Send email to castrosignals@gmail.com"
+      >
+        contact&#64;gabrielcastro.dev
+      </a>
+    </div>
 
-        <!-- Mobile Menu Button -->
-        <button class="navbar__hamburger" [class.navbar__hamburger--open]="isMobileMenuOpen()"
-            (click)="toggleMobileMenu()" aria-label="Toggle menu">
-            <span></span>
-            <span></span>
-            <span></span>
+    <!-- Mobile Menu Button -->
+    <button
+      class="navbar__hamburger"
+      [class.navbar__hamburger--open]="isMobileMenuOpen()"
+      (click)="toggleMobileMenu()"
+      [attr.aria-label]="isMobileMenuOpen() ? 'Close menu' : 'Open menu'"
+      [attr.aria-expanded]="isMobileMenuOpen()"
+      aria-controls="mobile-menu"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    class="navbar__mobile"
+    id="mobile-menu"
+    role="dialog"
+    [attr.aria-hidden]="!isMobileMenuOpen()"
+    [class.navbar__mobile--open]="isMobileMenuOpen()"
+  >
+    <ul class="navbar__mobile-links">
+      @for (link of navLinks; track link.path) {
+        <li>
+          <a
+            [routerLink]="link.path"
+            routerLinkActive="navbar__mobile-link--active"
+            [routerLinkActiveOptions]="{ exact: link.exact }"
+            class="navbar__mobile-link"
+            (click)="closeMobileMenu()"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+      }
+      <li>
+        <a
+          href="mailto:castrosignals@gmail.com"
+          class="navbar__mobile-link"
+          (click)="closeMobileMenu()"
+        >
+          Contact
+        </a>
+      </li>
+      <li>
+        <button class="navbar__mobile-theme" (click)="toggleTheme()">
+          {{ isDarkTheme() ? 'Switch to Light' : 'Switch to Dark' }}
         </button>
+      </li>
+    </ul>
+    <div class="navbar__mobile-social">
+      <a
+        href="https://linkedin.com/in/castrosignals"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="navbar__mobile-social-link"
+        aria-label="LinkedIn profile"
+        >LinkedIn</a
+      >
+      <a
+        href="https://github.com/castrosignals"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="navbar__mobile-social-link"
+        aria-label="GitHub profile"
+        >GitHub</a
+      >
     </div>
-
-    <!-- Mobile Menu -->
-    <div class="navbar__mobile" [class.navbar__mobile--open]="isMobileMenuOpen()">
-        <ul class="navbar__mobile-links">
-            @for (link of navLinks; track link.path) {
-            <li>
-                <a [routerLink]="link.path" routerLinkActive="navbar__mobile-link--active"
-                    [routerLinkActiveOptions]="{exact: link.exact}" class="navbar__mobile-link"
-                    (click)="closeMobileMenu()">
-                    {{ link.label }}
-                </a>
-            </li>
-            }
-            <li>
-                <a href="mailto:contact@gabrielcastro.dev" class="navbar__mobile-link" (click)="closeMobileMenu()">
-                    Contact
-                </a>
-            </li>
-            <li>
-                <button class="navbar__mobile-theme" (click)="toggleTheme()">
-                    {{ isDarkTheme() ? 'Switch to Light' : 'Switch to Dark' }}
-                </button>
-            </li>
-        </ul>
-        <div class="navbar__mobile-social">
-            <a href="https://linkedin.com/in/gabcas28" target="_blank" rel="noopener noreferrer" class="navbar__mobile-social-link">LinkedIn</a>
-            <a href="https://github.com/gabcas28" target="_blank" rel="noopener noreferrer" class="navbar__mobile-social-link">GitHub</a>
-        </div>
-    </div>
+  </div>
 </nav>

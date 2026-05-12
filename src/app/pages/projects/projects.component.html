@@ -3,7 +3,7 @@
     <section class="projects-hero">
         <div class="container">
             <div class="projects-hero__content">
-                <a routerLink="/" class="projects-hero__back">&larr; Back</a>
+                <a routerLink="/" class="projects-hero__back" aria-label="Back to home page">&larr; Back</a>
 
                 <h1 class="projects-hero__title">Journey &amp; Work</h1>
                 <p class="projects-hero__subtitle">
@@ -14,18 +14,18 @@
     </section>
 
     <!-- Timeline Section -->
-    <section class="timeline-section">
+    <section class="timeline-section" aria-labelledby="timeline-heading">
         <div class="container">
             <div class="section-header">
                 <span class="section-label">Career Path</span>
-                <h2 class="section-title">Timeline</h2>
+                <h2 class="section-title" id="timeline-heading">Timeline</h2>
             </div>
 
-            <div class="timeline">
+            <ol class="timeline" role="list" aria-label="Career timeline">
                 @for (item of timeline(); track item.id; let i = $index) {
-                <div class="timeline-item">
+                <li class="timeline-item">
                     <div class="timeline-item__meta">
-                        <span class="timeline-item__year">{{ item.year }}</span>
+                        <time class="timeline-item__year">{{ item.year }}</time>
                         <span class="timeline-item__type">{{ getTypeLabel(item.type) }}</span>
                     </div>
 
@@ -34,56 +34,59 @@
                         <span class="timeline-item__company">{{ item.company }}</span>
                         <p class="timeline-item__description">{{ item.description }}</p>
 
-                        <div class="timeline-item__tech">
+                        <div class="timeline-item__tech" role="list" aria-label="Technologies">
                             @for (tech of item.technologies; track tech) {
-                            <span class="timeline-item__tech-badge">{{ tech }}</span>
+                            <span class="timeline-item__tech-badge" role="listitem">{{ tech }}</span>
                             }
                         </div>
                     </div>
-                </div>
+                </li>
                 }
-            </div>
+            </ol>
         </div>
     </section>
 
     <!-- Detailed Projects Section -->
-    <section class="detailed-projects">
+    <section class="detailed-projects" aria-labelledby="deep-dives-heading">
         <div class="container">
             <div class="section-header">
                 <span class="section-label">Portfolio</span>
-                <h2 class="section-title">Deep Dives</h2>
+                <h2 class="section-title" id="deep-dives-heading">Deep Dives</h2>
             </div>
 
             <div class="projects-list">
                 @for (project of detailedProjects(); track project.id; let i = $index) {
                 <article class="detailed-card" [class.detailed-card--expanded]="expandedProject() === project.id">
-                    <!-- Project Header -->
-                    <div class="detailed-card__header" (click)="toggleProject(project.id)">
+                    <!-- Project Header (keyboard-accessible) -->
+                    <button class="detailed-card__header" (click)="toggleProject(project.id)"
+                        [attr.aria-expanded]="expandedProject() === project.id"
+                        [attr.aria-controls]="'project-body-' + project.id">
                         <div class="detailed-card__header-left">
-                            <span class="detailed-card__index">{{ (i + 1).toString().padStart(2, '0') }}</span>
+                            <span class="detailed-card__index" aria-hidden="true">{{ (i + 1).toString().padStart(2, '0') }}</span>
                             <div>
                                 <span class="detailed-card__subtitle">{{ project.subtitle }}</span>
-                                <h3 class="detailed-card__title">{{ project.title }}</h3>
+                                <span class="detailed-card__title">{{ project.title }}</span>
                             </div>
                         </div>
                         <div class="detailed-card__header-right">
                             <span class="detailed-card__year">{{ project.year }}</span>
-                            <button class="detailed-card__toggle" [attr.aria-expanded]="expandedProject() === project.id">
+                            <span class="detailed-card__toggle" aria-hidden="true">
                                 {{ expandedProject() === project.id ? '&minus;' : '+' }}
-                            </button>
+                            </span>
                         </div>
-                    </div>
+                    </button>
 
                     <!-- Expandable content -->
-                    <div class="detailed-card__body">
+                    <div class="detailed-card__body" [id]="'project-body-' + project.id"
+                        role="region" [attr.aria-label]="project.title + ' details'">
                         <p class="detailed-card__description">{{ project.longDescription }}</p>
 
                         <!-- Technologies -->
                         <div class="detailed-card__tech">
                             <h4 class="detailed-card__section-title">Technologies</h4>
-                            <div class="detailed-card__tech-list">
+                            <div class="detailed-card__tech-list" role="list" aria-label="Technologies used">
                                 @for (tech of project.technologies; track tech) {
-                                <span class="detailed-card__tech-badge">{{ tech }}</span>
+                                <span class="detailed-card__tech-badge" role="listitem">{{ tech }}</span>
                                 }
                             </div>
                         </div>
@@ -114,7 +117,7 @@
                 <p class="contact-cta__text">
                     Open to new roles and collaborations. Data, dashboards, complex UI — let's talk.
                 </p>
-                <a href="mailto:contact@gabrielcastro.dev" class="contact-cta__button">
+                <a href="mailto:castrosignals@gmail.com" class="contact-cta__button">
                     contact&#64;gabrielcastro.dev &rarr;
                 </a>
             </div>

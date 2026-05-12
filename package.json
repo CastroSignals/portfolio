@@ -1,27 +1,23 @@
 {
   "name": "portfolio",
   "version": "0.0.0",
+  "private": true,
+  "packageManager": "npm@10.9.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test --watch=false",
+    "test:watch": "ng test",
+    "lint": "eslint \"**/*.{js,mjs,cjs,ts,html}\"",
+    "lint:fix": "eslint \"**/*.{js,mjs,cjs,ts,html}\" --fix",
+    "format": "prettier --write \"**/*.{ts,html,scss,css,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,html,scss,css,json,md}\"",
+    "e2e": "playwright test",
+    "e2e:install": "playwright install --with-deps chromium",
+    "prepare": "husky && node scripts/setup-husky.mjs"
   },
-  "prettier": {
-    "printWidth": 100,
-    "singleQuote": true,
-    "overrides": [
-      {
-        "files": "*.html",
-        "options": {
-          "parser": "angular"
-        }
-      }
-    ]
-  },
-  "private": true,
-  "packageManager": "npm@10.9.2",
   "dependencies": {
     "@angular/common": "^21.0.0",
     "@angular/compiler": "^21.0.0",
@@ -36,6 +32,21 @@
     "@angular/build": "^21.0.2",
     "@angular/cli": "^21.0.2",
     "@angular/compiler-cli": "^21.0.0",
-    "typescript": "~5.9.2"
+    "@axe-core/playwright": "^4.10.0",
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@eslint/js": "^9.18.0",
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^22.10.0",
+    "angular-eslint": "^21.0.0",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^9.1.0",
+    "husky": "^9.1.7",
+    "jsdom": "^25.0.1",
+    "lint-staged": "^15.4.0",
+    "prettier": "^3.4.0",
+    "typescript": "~5.9.2",
+    "typescript-eslint": "^8.20.0",
+    "vitest": "^4.1.6"
   }
 }

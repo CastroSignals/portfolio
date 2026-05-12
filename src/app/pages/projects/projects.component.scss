@@ -87,6 +87,7 @@
 
 .timeline {
     max-width: 900px;
+    list-style: none;
 }
 
 .timeline-item {
@@ -206,11 +207,17 @@
 
     &__header {
         display: flex;
+        width: 100%;
         justify-content: space-between;
         align-items: center;
         padding: var(--space-xl) var(--space-2xl);
         cursor: pointer;
         gap: var(--space-lg);
+        background: none;
+        border: none;
+        color: inherit;
+        font: inherit;
+        text-align: left;
 
         @media (max-width: 768px) {
             padding: var(--space-lg) var(--space-md);
@@ -252,6 +259,7 @@
     }
 
     &__title {
+        display: block;
         font-family: var(--font-mono);
         font-size: 1.2rem;
         font-weight: 700;
@@ -278,11 +286,11 @@
         font-size: 1.2rem;
         font-weight: 400;
         transition: color var(--transition-fast), border-color var(--transition-fast);
+    }
 
-        &:hover {
-            color: var(--accent);
-            border-color: var(--accent);
-        }
+    &__header:hover &__toggle {
+        color: var(--accent);
+        border-color: var(--accent);
     }
 
     // Expandable body
