@@ -30,9 +30,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ]
+            "styles": ["src/styles.scss"]
           },
           "configurations": {
             "production": {
@@ -48,6 +46,7 @@
                   "maximumError": "16kB"
                 }
               ],
+              "baseHref": "/portfolio/",
               "outputHashing": "all"
             },
             "development": {
@@ -69,6 +68,14 @@
             }
           },
           "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "tsconfig.spec.json",
+            "buildTarget": "portfolio:build:development",
+            "runner": "vitest"
+          }
         }
       }
     }
