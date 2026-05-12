@@ -1,9 +1,9 @@
-<section id="projects" class="projects-preview">
+<section id="projects" class="projects-preview" aria-labelledby="projects-heading">
     <div class="container">
         <!-- Section Header -->
         <div class="projects-preview__header">
             <span class="projects-preview__label">Selected Work</span>
-            <h2 class="projects-preview__title">Projects</h2>
+            <h2 class="projects-preview__title" id="projects-heading">Projects</h2>
             <p class="projects-preview__subtitle">
                 Dashboards, data tools, and real-time visualisations — built for real users at real scale.
             </p>
@@ -12,9 +12,9 @@
         <!-- Projects Grid -->
         <div class="projects-preview__grid">
             @for (project of projects(); track project.id; let i = $index) {
-            <article class="project-card">
+            <article class="project-card" [attr.aria-label]="project.title">
                 <!-- Index number -->
-                <span class="project-card__index">{{ (i + 1).toString().padStart(2, '0') }}</span>
+                <span class="project-card__index" aria-hidden="true">{{ (i + 1).toString().padStart(2, '0') }}</span>
 
                 <!-- Info -->
                 <div class="project-card__info">
@@ -22,14 +22,14 @@
                     <p class="project-card__description">{{ project.description }}</p>
 
                     <!-- Tags -->
-                    <div class="project-card__tags">
+                    <div class="project-card__tags" role="list" aria-label="Technologies used">
                         @for (tag of project.tags; track tag) {
-                        <span class="project-card__tag">{{ tag }}</span>
+                        <span class="project-card__tag" role="listitem">{{ tag }}</span>
                         }
                     </div>
 
                     <!-- Link -->
-                    <a [routerLink]="['/projects']" class="project-card__link">
+                    <a [routerLink]="['/projects']" class="project-card__link" [attr.aria-label]="'View details for ' + project.title">
                         View Details &rarr;
                     </a>
                 </div>

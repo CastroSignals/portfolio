@@ -18,19 +18,19 @@
     </p>
 
     <!-- CTA -->
-    <div class="hero__actions">
+    <div class="hero__actions" role="group" aria-label="Call to action">
       <a href="#projects" class="hero__btn hero__btn--primary">View Work &darr;</a>
       <a href="mailto:contact@gabrielcastro.dev" class="hero__btn hero__btn--secondary">Get in Touch</a>
     </div>
 
     <!-- Tech Stack -->
-    <div class="hero__tech">
+    <div class="hero__tech" role="list" aria-label="Tech stack">
       @for (tech of ['Angular', 'TypeScript', 'Java', 'Python', 'D3.js']; track tech) {
-        <span class="hero__tech-badge">{{ tech }}</span>
+        <span class="hero__tech-badge" role="listitem">{{ tech }}</span>
       }
     </div>
   </div>
 
   <!-- Grid overlay -->
-  <div class="hero__grid"></div>
+  <div class="hero__grid" aria-hidden="true"></div>
 </section>

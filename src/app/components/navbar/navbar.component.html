@@ -1,7 +1,7 @@
-<nav class="navbar" [class.navbar--scrolled]="isScrolled()">
+<nav class="navbar" [class.navbar--scrolled]="isScrolled()" aria-label="Main navigation">
     <div class="navbar__container">
         <!-- Logo -->
-        <a routerLink="/" class="navbar__logo" (click)="closeMobileMenu()">GC</a>
+        <a routerLink="/" class="navbar__logo" (click)="closeMobileMenu()" aria-label="Gabriel Castro — Home">GC</a>
 
         <!-- Desktop Navigation -->
         <ul class="navbar__links">
@@ -28,22 +28,25 @@
             </button>
 
             <!-- Contact Button -->
-            <a href="mailto:contact@gabrielcastro.dev" class="navbar__contact">
+            <a href="mailto:contact@gabrielcastro.dev" class="navbar__contact" aria-label="Send email to contact@gabrielcastro.dev">
                 contact&#64;gabrielcastro.dev
             </a>
         </div>
 
         <!-- Mobile Menu Button -->
         <button class="navbar__hamburger" [class.navbar__hamburger--open]="isMobileMenuOpen()"
-            (click)="toggleMobileMenu()" aria-label="Toggle menu">
-            <span></span>
-            <span></span>
-            <span></span>
+            (click)="toggleMobileMenu()"
+            [attr.aria-label]="isMobileMenuOpen() ? 'Close menu' : 'Open menu'"
+            [attr.aria-expanded]="isMobileMenuOpen()"
+            aria-controls="mobile-menu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
         </button>
     </div>
 
     <!-- Mobile Menu -->
-    <div class="navbar__mobile" [class.navbar__mobile--open]="isMobileMenuOpen()">
+    <div class="navbar__mobile" id="mobile-menu" role="dialog" [attr.aria-hidden]="!isMobileMenuOpen()" [class.navbar__mobile--open]="isMobileMenuOpen()">
         <ul class="navbar__mobile-links">
             @for (link of navLinks; track link.path) {
             <li>
@@ -66,8 +69,8 @@
             </li>
         </ul>
         <div class="navbar__mobile-social">
-            <a href="https://linkedin.com/in/gabcas28" target="_blank" rel="noopener noreferrer" class="navbar__mobile-social-link">LinkedIn</a>
-            <a href="https://github.com/gabcas28" target="_blank" rel="noopener noreferrer" class="navbar__mobile-social-link">GitHub</a>
+            <a href="https://linkedin.com/in/gabcas28" target="_blank" rel="noopener noreferrer" class="navbar__mobile-social-link" aria-label="LinkedIn profile">LinkedIn</a>
+            <a href="https://github.com/gabcas28" target="_blank" rel="noopener noreferrer" class="navbar__mobile-social-link" aria-label="GitHub profile">GitHub</a>
         </div>
     </div>
 </nav>
