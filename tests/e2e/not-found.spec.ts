@@ -2,6 +2,12 @@ import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
 test.describe('Not found (wildcard route)', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.addInitScript(() => {
+      window.localStorage.setItem('app-language', 'en');
+    });
+  });
+
   test('renders the 404 component on an unknown path', async ({ page }) => {
     await page.goto('/this-route-does-not-exist');
     const h1 = page.getByRole('heading', { level: 1 });

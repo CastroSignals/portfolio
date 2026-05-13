@@ -3,28 +3,31 @@
     <div class="footer__top">
       <div class="footer__brand">
         <span class="footer__logo" aria-hidden="true">GC</span>
-        <p class="footer__tagline">Data-driven interfaces for airlines and logistics.</p>
+        <p class="footer__tagline">{{ t('footer.tagline') }}</p>
       </div>
 
-      <nav class="footer__links" aria-label="Footer links">
+      <nav class="footer__links" [attr.aria-label]="t('footer.linksAriaLabel')">
         <a
           href="https://linkedin.com/in/castrosignals"
           target="_blank"
           rel="noopener noreferrer"
           class="footer__link"
-          aria-label="LinkedIn profile"
-          >LinkedIn</a
+          [attr.aria-label]="t('footer.linkedinAriaLabel')"
+          >{{ t('footer.linkedin') }}</a
         >
         <a
           href="https://github.com/castrosignals"
           target="_blank"
           rel="noopener noreferrer"
           class="footer__link"
-          aria-label="GitHub profile"
-          >GitHub</a
+          [attr.aria-label]="t('footer.githubAriaLabel')"
+          >{{ t('footer.github') }}</a
         >
-        <a href="mailto:castrosignals@gmail.com" class="footer__link" aria-label="Send email"
-          >Email</a
+        <a
+          href="mailto:castrosignals@gmail.com"
+          class="footer__link"
+          [attr.aria-label]="t('footer.emailAriaLabel')"
+          >{{ t('footer.email') }}</a
         >
       </nav>
     </div>
@@ -32,8 +35,8 @@
     <div class="footer__divider"></div>
 
     <div class="footer__bottom">
-      <p class="footer__copyright">&copy; {{ currentYear }} Gabriel Castro</p>
-      <p class="footer__built-with">Built with Angular</p>
+      <p class="footer__copyright">{{ t('footer.copyright', { year: currentYear }) }}</p>
+      <p class="footer__built-with">{{ t('footer.builtWith') }}</p>
     </div>
   </div>
 </footer>

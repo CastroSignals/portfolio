@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+
+import { LanguageService } from '../../i18n/language.service';
 
 @Component({
   selector: 'app-not-found',
@@ -9,4 +11,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './not-found.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NotFoundComponent {}
+export class NotFoundComponent {
+  private readonly i18n = inject(LanguageService);
+  readonly t = this.i18n.t.bind(this.i18n);
+}

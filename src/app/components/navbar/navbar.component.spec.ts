@@ -3,16 +3,23 @@ import { provideRouter } from '@angular/router';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 
 import { NavbarComponent } from './navbar.component';
+import { LanguageService } from '../../i18n/language.service';
 
 describe('NavbarComponent', () => {
   let fixture: ComponentFixture<NavbarComponent>;
   let component: NavbarComponent;
+  let lang: LanguageService;
 
   beforeEach(async () => {
+    window.localStorage.clear();
+
     await TestBed.configureTestingModule({
       imports: [NavbarComponent],
       providers: [provideRouter([])]
     }).compileComponents();
+
+    lang = TestBed.inject(LanguageService);
+    lang.setLanguage('en');
 
     fixture = TestBed.createComponent(NavbarComponent);
     component = fixture.componentInstance;
@@ -21,11 +28,22 @@ describe('NavbarComponent', () => {
 
   afterEach(() => {
     document.documentElement.removeAttribute('data-theme');
+    document.documentElement.removeAttribute('lang');
+    window.localStorage.clear();
   });
 
-  it('exposes Home and Projects nav links', () => {
-    const labels = component.navLinks.map((l) => l.label);
-    expect(labels).toEqual(['Home', 'Projects']);
+  it('exposes Home and Projects nav link keys', () => {
+    const keys = component.navLinks.map((l) => l.labelKey);
+    expect(keys).toEqual(['nav.links.home', 'nav.links.projects']);
+  });
+
+  it('renders the resolved nav link labels in English', () => {
+    const root = fixture.nativeElement as HTMLElement;
+    const labels = Array.from(root.querySelectorAll('.navbar__link')).map(
+      (n) => n.textContent?.trim() ?? ''
+    );
+    expect(labels).toContain('Home');
+    expect(labels).toContain('Projects');
   });
 
   it('initial isScrolled is false', () => {
@@ -68,5 +86,13 @@ describe('NavbarComponent', () => {
     component.toggleTheme();
     expect(component.isDarkTheme()).toBe(true);
     expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
+  });
+
+  it('toggleLanguage swaps the active language via the service', () => {
+    expect(component.language()).toBe('en');
+    component.toggleLanguage();
+    expect(component.language()).toBe('es');
+    component.toggleLanguage();
+    expect(component.language()).toBe('en');
   });
 });

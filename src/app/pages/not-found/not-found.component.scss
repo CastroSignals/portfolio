@@ -55,13 +55,14 @@
       border-color var(--transition-fast);
 
     &--primary {
-      background: var(--accent);
-      color: #fff;
-      border: 2px solid var(--accent);
+      background: var(--text-primary);
+      color: var(--bg-primary);
+      border: 2px solid var(--text-primary);
 
       &:hover {
-        background: var(--accent-hover);
-        border-color: var(--accent-hover);
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
       }
     }
 

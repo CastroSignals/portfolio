@@ -3,6 +3,7 @@ import { provideRouter } from '@angular/router';
 import { beforeEach, describe, expect, it } from 'vitest';
 
 import { ProjectsComponent } from './projects.component';
+import { LanguageService } from '../../i18n/language.service';
 
 describe('ProjectsComponent', () => {
   let fixture: ComponentFixture<ProjectsComponent>;
@@ -13,6 +14,8 @@ describe('ProjectsComponent', () => {
       imports: [ProjectsComponent],
       providers: [provideRouter([])]
     }).compileComponents();
+
+    TestBed.inject(LanguageService).setLanguage('en');
 
     fixture = TestBed.createComponent(ProjectsComponent);
     component = fixture.componentInstance;
@@ -49,7 +52,7 @@ describe('ProjectsComponent', () => {
     ['work', 'Work'],
     ['project', 'Project'],
     ['education', 'Education']
-  ] as const)('getTypeLabel returns "%s" → "%s"', (type, expected) => {
+  ] as const)('getTypeLabel returns "%s" → "%s" in English', (type, expected) => {
     expect(component.getTypeLabel(type)).toBe(expected);
   });
 
@@ -61,7 +64,7 @@ describe('ProjectsComponent', () => {
     expect(component.getTypeIcon('work')).toBeTruthy();
   });
 
-  it('renders the page heading "Journey & Work"', () => {
+  it('renders the page heading from i18n', () => {
     const root = fixture.nativeElement as HTMLElement;
     const h1 = root.querySelector('h1');
     expect(h1?.textContent).toContain('Journey');
