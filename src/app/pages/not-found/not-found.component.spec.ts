@@ -3,6 +3,7 @@ import { provideRouter } from '@angular/router';
 import { beforeEach, describe, expect, it } from 'vitest';
 
 import { NotFoundComponent } from './not-found.component';
+import { LanguageService } from '../../i18n/language.service';
 
 describe('NotFoundComponent', () => {
   let fixture: ComponentFixture<NotFoundComponent>;
@@ -12,6 +13,8 @@ describe('NotFoundComponent', () => {
       imports: [NotFoundComponent],
       providers: [provideRouter([])]
     }).compileComponents();
+
+    TestBed.inject(LanguageService).setLanguage('en');
 
     fixture = TestBed.createComponent(NotFoundComponent);
     fixture.detectChanges();

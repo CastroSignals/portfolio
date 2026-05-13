@@ -1,15 +1,17 @@
-<nav class="navbar" [class.navbar--scrolled]="isScrolled()" aria-label="Main navigation">
+<nav
+  class="navbar"
+  [class.navbar--scrolled]="isScrolled()"
+  [attr.aria-label]="t('nav.mainAriaLabel')"
+>
   <div class="navbar__container">
-    <!-- Logo -->
     <a
       routerLink="/"
       class="navbar__logo"
       (click)="closeMobileMenu()"
-      aria-label="Gabriel Castro — Home"
+      [attr.aria-label]="t('nav.logoAriaLabel')"
       >GC</a
     >
 
-    <!-- Desktop Navigation -->
     <ul class="navbar__links">
       @for (link of navLinks; track link.path) {
         <li>
@@ -19,13 +21,12 @@
             [routerLinkActiveOptions]="{ exact: link.exact }"
             class="navbar__link"
           >
-            {{ link.label }}
+            {{ t(link.labelKey) }}
           </a>
         </li>
       }
     </ul>
 
-    <!-- Right side: social + theme toggle + contact -->
     <div class="navbar__right">
       <div class="navbar__social">
         <a
@@ -33,44 +34,53 @@
           target="_blank"
           rel="noopener noreferrer"
           class="navbar__social-link"
-          aria-label="LinkedIn"
-          >Li</a
+          [attr.aria-label]="t('nav.social.linkedinAriaLabel')"
+          >{{ t('nav.social.linkedin') }}</a
         >
         <a
           href="https://github.com/castrosignals"
           target="_blank"
           rel="noopener noreferrer"
           class="navbar__social-link"
-          aria-label="GitHub"
-          >Gh</a
+          [attr.aria-label]="t('nav.social.githubAriaLabel')"
+          >{{ t('nav.social.github') }}</a
         >
       </div>
 
-      <!-- Theme Toggle -->
+      <button
+        class="navbar__lang-toggle"
+        (click)="toggleLanguage()"
+        [attr.aria-label]="
+          language() === 'en' ? t('nav.language.switchToEs') : t('nav.language.switchToEn')
+        "
+      >
+        {{ language() === 'en' ? t('nav.language.toEs') : t('nav.language.toEn') }}
+      </button>
+
       <button
         class="navbar__theme-toggle"
         (click)="toggleTheme()"
-        [attr.aria-label]="isDarkTheme() ? 'Switch to light mode' : 'Switch to dark mode'"
+        [attr.aria-label]="
+          isDarkTheme() ? t('nav.theme.switchToLight') : t('nav.theme.switchToDark')
+        "
       >
-        {{ isDarkTheme() ? 'Light' : 'Dark' }}
+        {{ isDarkTheme() ? t('nav.theme.toLight') : t('nav.theme.toDark') }}
       </button>
 
-      <!-- Contact Button -->
       <a
         href="mailto:castrosignals@gmail.com"
         class="navbar__contact"
-        aria-label="Send email to castrosignals@gmail.com"
+        [attr.aria-label]="t('nav.contactEmailAriaLabel')"
       >
         castrosignals@gmail.com
       </a>
     </div>
 
-    <!-- Mobile Menu Button -->
     <button
       class="navbar__hamburger"
       [class.navbar__hamburger--open]="isMobileMenuOpen()"
       (click)="toggleMobileMenu()"
-      [attr.aria-label]="isMobileMenuOpen() ? 'Close menu' : 'Open menu'"
+      [attr.aria-label]="isMobileMenuOpen() ? t('nav.menu.close') : t('nav.menu.open')"
       [attr.aria-expanded]="isMobileMenuOpen()"
       aria-controls="mobile-menu"
     >
@@ -80,7 +90,6 @@
     </button>
   </div>
 
-  <!-- Mobile Menu -->
   <div
     class="navbar__mobile"
     id="mobile-menu"
@@ -98,7 +107,7 @@
             class="navbar__mobile-link"
             (click)="closeMobileMenu()"
           >
-            {{ link.label }}
+            {{ t(link.labelKey) }}
           </a>
         </li>
       }
@@ -108,12 +117,19 @@
           class="navbar__mobile-link"
           (click)="closeMobileMenu()"
         >
-          Contact
+          {{ t('nav.contact') }}
         </a>
       </li>
       <li>
         <button class="navbar__mobile-theme" (click)="toggleTheme()">
-          {{ isDarkTheme() ? 'Switch to Light' : 'Switch to Dark' }}
+          {{
+            isDarkTheme() ? t('nav.theme.mobileSwitchToLight') : t('nav.theme.mobileSwitchToDark')
+          }}
+        </button>
+      </li>
+      <li>
+        <button class="navbar__mobile-theme" (click)="toggleLanguage()">
+          {{ language() === 'en' ? t('nav.language.switchToEs') : t('nav.language.switchToEn') }}
         </button>
       </li>
     </ul>
@@ -123,16 +139,16 @@
         target="_blank"
         rel="noopener noreferrer"
         class="navbar__mobile-social-link"
-        aria-label="LinkedIn profile"
-        >LinkedIn</a
+        [attr.aria-label]="t('nav.social.mobileLinkedinAriaLabel')"
+        >{{ t('nav.social.mobileLinkedin') }}</a
       >
       <a
         href="https://github.com/castrosignals"
         target="_blank"
         rel="noopener noreferrer"
         class="navbar__mobile-social-link"
-        aria-label="GitHub profile"
-        >GitHub</a
+        [attr.aria-label]="t('nav.social.mobileGithubAriaLabel')"
+        >{{ t('nav.social.mobileGithub') }}</a
       >
     </div>
   </div>

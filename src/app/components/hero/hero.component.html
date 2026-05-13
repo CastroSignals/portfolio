@@ -1,36 +1,26 @@
 <section class="hero">
   <div class="hero__content">
-    <!-- Label -->
-    <span class="hero__label">Software Engineer — Madrid, Spain</span>
+    <span class="hero__label">{{ t('hero.label') }}</span>
 
-    <!-- Name -->
-    <h1 class="hero__name">Gabriel<br>Castro</h1>
+    <h1 class="hero__name">{{ t('hero.nameFirst') }}<br />{{ t('hero.nameLast') }}</h1>
 
-    <!-- Tagline -->
-    <p class="hero__tagline">{{ tagline }}</p>
+    <p class="hero__tagline">{{ t('hero.tagline') }}</p>
 
-    <!-- Description -->
-    <p class="hero__description">
-      8 years turning complex data into clear decisions.
-      Revenue dashboards used by 10+ airlines at Amadeus.
-      Logistics platforms serving 100+ users across Europe.
-      CS &amp; Mathematics from UPM, Erasmus at Aalto University.
-    </p>
+    <p class="hero__description">{{ t('hero.description') }}</p>
 
-    <!-- CTA -->
-    <div class="hero__actions" role="group" aria-label="Call to action">
-      <a href="#projects" class="hero__btn hero__btn--primary">View Work &darr;</a>
-      <a href="mailto:castrosignals@gmail.com" class="hero__btn hero__btn--secondary">Get in Touch</a>
+    <div class="hero__actions" role="group" [attr.aria-label]="t('hero.cta.groupAriaLabel')">
+      <a href="#projects" class="hero__btn hero__btn--primary">{{ t('hero.cta.primary') }}</a>
+      <a href="mailto:castrosignals@gmail.com" class="hero__btn hero__btn--secondary">{{
+        t('hero.cta.secondary')
+      }}</a>
     </div>
 
-    <!-- Tech Stack -->
-    <div class="hero__tech" role="list" aria-label="Tech stack">
-      @for (tech of ['Angular', 'TypeScript', 'Java', 'Python', 'D3.js']; track tech) {
+    <div class="hero__tech" role="list" [attr.aria-label]="t('hero.techStackAriaLabel')">
+      @for (tech of techStack; track tech) {
         <span class="hero__tech-badge" role="listitem">{{ tech }}</span>
       }
     </div>
   </div>
 
-  <!-- Grid overlay -->
   <div class="hero__grid" aria-hidden="true"></div>
 </section>

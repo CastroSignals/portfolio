@@ -1,18 +1,19 @@
 <main class="not-found">
   <div class="container">
-    <span class="not-found__label">Error 404</span>
+    <span class="not-found__label">{{ t('notFound.label') }}</span>
     <h1 class="not-found__title">
-      Page<br />
-      not<br />
-      found
+      {{ t('notFound.titleLine1') }}<br />
+      {{ t('notFound.titleLine2') }}<br />
+      {{ t('notFound.titleLine3') }}
     </h1>
-    <p class="not-found__description">
-      The page you&rsquo;re looking for doesn&rsquo;t exist or has moved. If you got here from a
-      link on the site, that&rsquo;s a bug worth knowing about.
-    </p>
-    <nav class="not-found__actions" aria-label="404 navigation">
-      <a routerLink="/" class="not-found__btn not-found__btn--primary">&larr; Back to Home</a>
-      <a routerLink="/projects" class="not-found__btn not-found__btn--secondary">View Projects</a>
+    <p class="not-found__description">{{ t('notFound.description') }}</p>
+    <nav class="not-found__actions" [attr.aria-label]="t('notFound.actions.ariaLabel')">
+      <a routerLink="/" class="not-found__btn not-found__btn--primary">{{
+        t('notFound.actions.home')
+      }}</a>
+      <a routerLink="/projects" class="not-found__btn not-found__btn--secondary">{{
+        t('notFound.actions.projects')
+      }}</a>
     </nav>
   </div>
 </main>

@@ -1,0 +1,245 @@
+{
+  "app": {
+    "title": "Portfolio de Gabriel Castro",
+    "skipLink": "Saltar al contenido principal"
+  },
+  "nav": {
+    "mainAriaLabel": "Navegación principal",
+    "logoAriaLabel": "Gabriel Castro, Inicio",
+    "links": {
+      "home": "Inicio",
+      "projects": "Proyectos"
+    },
+    "social": {
+      "linkedin": "In",
+      "github": "GH",
+      "linkedinAriaLabel": "LinkedIn",
+      "githubAriaLabel": "GitHub",
+      "mobileLinkedin": "LinkedIn",
+      "mobileGithub": "GitHub",
+      "mobileLinkedinAriaLabel": "Perfil de LinkedIn",
+      "mobileGithubAriaLabel": "Perfil de GitHub"
+    },
+    "theme": {
+      "toLight": "Claro",
+      "toDark": "Oscuro",
+      "switchToLight": "Cambiar a modo claro",
+      "switchToDark": "Cambiar a modo oscuro",
+      "mobileSwitchToLight": "Cambiar a Claro",
+      "mobileSwitchToDark": "Cambiar a Oscuro"
+    },
+    "language": {
+      "toEs": "ES",
+      "toEn": "EN",
+      "switchToEs": "Cambiar a español",
+      "switchToEn": "Switch to English"
+    },
+    "contact": "Contacto",
+    "contactEmailAriaLabel": "Enviar correo a castrosignals@gmail.com",
+    "menu": {
+      "open": "Abrir menú",
+      "close": "Cerrar menú"
+    }
+  },
+  "hero": {
+    "label": "Ingeniero de Software · Especialista Angular · Madrid, España",
+    "nameFirst": "Gabriel",
+    "nameLast": "Castro",
+    "tagline": "Construyo los paneles con los que las aerolíneas gestionan sus ingresos.",
+    "description": "Más de 5 años convirtiendo datos complejos en decisiones claras, desde paneles de ingresos usados por más de 10 aerolíneas en Amadeus hasta plataformas logísticas visualizando más de 1.000 procesos en Europa.",
+    "cta": {
+      "primary": "Ver Proyectos ↓",
+      "secondary": "Contactar",
+      "groupAriaLabel": "Llamada a la acción"
+    },
+    "techStackAriaLabel": "Stack tecnológico"
+  },
+  "projectsPreview": {
+    "label": "Trabajo Seleccionado",
+    "title": "Proyectos",
+    "subtitle": "Paneles, herramientas de datos y visualizaciones en tiempo real. Construidos para usuarios reales a escala real.",
+    "techAriaLabel": "Tecnologías utilizadas",
+    "viewDetails": "Ver Detalles →",
+    "viewDetailsAriaPrefix": "Ver detalles de",
+    "allProjects": "Todos los Proyectos →",
+    "items": [
+      {
+        "title": "Amadeus Revenue Analytics",
+        "description": "Desarrollé el frontend de una plataforma de análisis de ingresos usada a diario por más de 10 clientes aéreos. Paneles Angular interactivos con NgRx y cdk-virtual-scroll sobre más de 100.000 registros en tiempo real."
+      },
+      {
+        "title": "Plataforma Logística de Zetes",
+        "description": "Sustituí 8 paneles logísticos independientes por una plataforma Angular unificada. Creé un grid de datos reutilizable adoptado en más de 10 proyectos. Migración de Angular v16 a v19, reduciendo el tiempo de compilación un 75% (3,5 min → <50s)."
+      },
+      {
+        "title": "Jingle Jangle",
+        "description": "Análisis de audio en tiempo real con transformada de Fourier que extrae notas del micrófono y las convierte a MIDI. Desarrollado durante el Erasmus en Aalto University."
+      },
+      {
+        "title": "Panel OBD para Smart Mazda",
+        "description": "Interfaz OBD para diagnóstico de coche en tiempo real (velocidad, RPM, carga del motor, temperatura) visualizada con D3.js y transmitida a un servidor Node.js. Proyecto personal de Aalto."
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Interfaces basadas en datos para aerolíneas y logística.",
+    "linksAriaLabel": "Enlaces del pie de página",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "email": "Correo",
+    "linkedinAriaLabel": "Perfil de LinkedIn",
+    "githubAriaLabel": "Perfil de GitHub",
+    "emailAriaLabel": "Enviar correo",
+    "copyright": "© {year} Gabriel Castro",
+    "builtWith": "Hecho con Angular"
+  },
+  "projectsPage": {
+    "back": "← Volver",
+    "backAriaLabel": "Volver a la página de inicio",
+    "title": "Trayectoria y Trabajo",
+    "subtitle": "Cronología profesional y los proyectos que han marcado mi carrera como ingeniero de software.",
+    "timeline": {
+      "label": "Carrera",
+      "title": "Cronología",
+      "ariaLabel": "Cronología profesional",
+      "techAriaLabel": "Tecnologías",
+      "type": {
+        "work": "Trabajo",
+        "project": "Proyecto",
+        "education": "Formación"
+      },
+      "items": [
+        {
+          "title": "Ingeniero de Software",
+          "company": "Zetes , Madrid",
+          "description": "Desarrollo y mantenimiento de 8 paneles logísticos en una única aplicación Angular visualizando más de 1.000 procesos. Construí un componente de grid reutilizable adoptado en más de 10 proyectos. Migración de Angular v16 a v19, reduciendo el tiempo de compilación un 75% (3,5 min → <50s). Pionero en flujos de revisión de código asistidos por LLM."
+        },
+        {
+          "title": "Ingeniero de Software",
+          "company": "Alten Technologies → Amadeus , Madrid",
+          "description": "Desarrollé el frontend de una plataforma de revenue management usada por más de 10 aerolíneas. Paneles Angular interactivos con NgRx y cdk-virtual-scroll sobre más de 100.000 registros. Aporté en backend con Java, C++ y Python en un equipo Agile de 10 personas."
+        },
+        {
+          "title": "Desarrollador de Software",
+          "company": "Vicerrectorado de Internacionalización de la UGR , Granada",
+          "description": "Construí desde cero una herramienta de gestión de contactos: importación automática desde Excel y HTML y envío personalizado de correos a más de 1.000 contactos internacionales."
+        },
+        {
+          "title": "Máster en Ingeniería Informática",
+          "company": "Universidad de Granada",
+          "description": "Programa de dos años en arquitectura de software avanzada, sistemas distribuidos y metodología de investigación. Simultaneado con el puesto en el Vicerrectorado y previo a la incorporación a Amadeus."
+        },
+        {
+          "title": "Erasmus: Machine Learning y Ciencia de Datos",
+          "company": "Aalto University , Finlandia",
+          "description": "Programa Macadamia: asignaturas de ML, ciencia de datos e IA. Modelo de predicción de resultados de fútbol, proyecto de análisis de series temporales, Jingle Jangle (Fourier de audio en tiempo real) y Smart Mazda (panel OBD de diagnóstico de coche)."
+        },
+        {
+          "title": "Desarrollador de Software",
+          "company": "Informática El Corte Inglés / Inetum , Madrid",
+          "description": "Scripts de automatización en Bash monitorizando más de 300 procesos de negocio. Apoyo en la migración a nuevos entornos virtuales."
+        },
+        {
+          "title": "Profesor de Robótica",
+          "company": "Jóvenes Inventores , Madrid",
+          "description": "Impartí 3 clases de 20–30 alumnos (9–12 años) de robótica práctica. Diseñé el proyecto grupal principal: un teleférico robótico construido y programado íntegramente por los alumnos."
+        },
+        {
+          "title": "Desarrollador de Software",
+          "company": "Neovantas , Madrid",
+          "description": "Construí 5 cursos e-learning interactivos en SCORM a partir de material original en PowerPoint, empaquetados para despliegue en LMS."
+        },
+        {
+          "title": "Desarrollador de Software",
+          "company": "Rigel Technologies , Madrid",
+          "description": "Librería Java que encapsulaba más de 50 comandos legados en Visual Basic, desacoplando el código de una dependencia frágil y permitiendo una migración progresiva."
+        },
+        {
+          "title": "Desarrollador de Software",
+          "company": "SIFRI , Madrid",
+          "description": "Aplicación Java de escritorio con backend MySQL para gestión de clientes y operaciones de marketing: registro de contactos, seguimiento de campañas e informes básicos."
+        },
+        {
+          "title": "Grado en Informática y Matemáticas",
+          "company": "Universidad Politécnica de Madrid (UPM)",
+          "description": "Doble grado en algoritmos, estructuras de datos, probabilidad, estadística, álgebra lineal y cálculo. Una base cuantitativa que marca mi forma de abordar la visualización de datos y los problemas complejos."
+        }
+      ]
+    },
+    "detailed": {
+      "label": "Portfolio",
+      "title": "En Profundidad",
+      "technologies": "Tecnologías",
+      "technologiesAriaLabel": "Tecnologías utilizadas",
+      "keyFeatures": "Características Clave",
+      "detailsAriaSuffix": "detalles",
+      "items": [
+        {
+          "title": "Amadeus Revenue Analytics",
+          "subtitle": "Visualización de Datos Empresariales",
+          "description": "Plataforma de revenue management para aerolíneas",
+          "longDescription": "Desarrollé el frontend de una aplicación de revenue management usada por más de 10 clientes aéreos para optimizar estrategias de pricing y monitorizar tendencias de reservas. Paneles Angular interactivos con NgRx y cdk-virtual-scroll sobre más de 100.000 registros almacenados en Oracle y MongoDB. Aporté en servicios backend en Java, C++ y Python en un equipo Agile de 10 personas.",
+          "features": [
+            "Gestión de estado con NgRx",
+            "cdk-virtual-scroll sobre 100.000+ registros",
+            "Tendencias de reservas en tiempo real",
+            "Entrega Agile multi-equipo"
+          ]
+        },
+        {
+          "title": "Plataforma Logística de Zetes",
+          "subtitle": "Arquitectura Angular con Web Components",
+          "description": "8 paneles, una sola app, compartida en más de 10 proyectos",
+          "longDescription": "Diseñé y mantuve la consolidación de 8 paneles logísticos en una única aplicación Angular usando Web Components e i18n, visualizando más de 1.000 procesos. Construí un componente de grid reutilizable con filtrado, ordenación y funcionalidades a medida adoptado en más de 10 proyectos de la empresa, reduciendo el tiempo de desarrollo de UI por proyecto en ~20%. Mantuve una librería de componentes Angular compartida usada por 8 equipos. Migración de Angular v16 a v19 y Node v22, reduciendo el tiempo de compilación un 75% (3,5 min → <50s). Introduje flujos de revisión de código asistidos por LLM, primero del equipo en adoptarlo.",
+          "features": [
+            "Reducción del 75% en tiempo de compilación",
+            "Librería de componentes para 8 equipos",
+            "Grid reutilizable en más de 10 proyectos",
+            "Desarrollo asistido por LLM"
+          ]
+        },
+        {
+          "title": "Jingle Jangle",
+          "subtitle": "Análisis de Audio en Tiempo Real",
+          "description": "Detección de notas con Fourier y conversión a MIDI",
+          "longDescription": "Herramienta de análisis de audio en tiempo real construida durante el Erasmus en Aalto University. Usa transformadas de Fourier para extraer notas musicales de un flujo de micrófono en vivo y las convierte a MIDI. Backend en Python para el procesado de señal y frontend en React y D3.js para la visualización de frecuencias en directo. En vivo en castrosignals.github.io/visuals/",
+          "features": [
+            "Entrada de micrófono en vivo",
+            "Procesado de señal por Fourier",
+            "Visualización de frecuencias en tiempo real",
+            "Salida MIDI de notas"
+          ]
+        },
+        {
+          "title": "Panel OBD para Smart Mazda",
+          "subtitle": "Visualización de Diagnóstico de Coche",
+          "description": "Datos OBD en tiempo real, transmitidos y visualizados con D3.js",
+          "longDescription": "Interfaz OBD (On-Board Diagnostics) para telemetría de coche en tiempo real. Lee velocidad, RPM, carga del motor y temperatura del puerto OBD del vehículo y transmite los datos a un servidor Node.js. Visualizado con D3.js y React. Proyecto personal de Aalto University. Código: github.com/castrosignals/Smart-Mazda-On-Board",
+          "features": [
+            "Telemetría OBD en tiempo real",
+            "Indicadores y gráficos D3.js en vivo",
+            "Servidor de datos en Node.js",
+            "Código abierto"
+          ]
+        }
+      ]
+    },
+    "contactCta": {
+      "title": "¿Necesitas un especialista Angular que entregue dashboards a escala?",
+      "text": "Abierto a roles donde los datos complejos se encuentran con una interfaz limpia. Hablemos.",
+      "button": "castrosignals@gmail.com →"
+    }
+  },
+  "notFound": {
+    "label": "Error 404",
+    "titleLine1": "Página",
+    "titleLine2": "no",
+    "titleLine3": "encontrada",
+    "description": "La página que buscas no existe o ha sido movida. Si has llegado aquí desde un enlace del sitio, es un fallo del que merece la pena saber.",
+    "actions": {
+      "ariaLabel": "Navegación 404",
+      "home": "← Volver al Inicio",
+      "projects": "Ver Proyectos"
+    }
+  }
+}

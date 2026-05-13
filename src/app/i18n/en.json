@@ -1,0 +1,245 @@
+{
+  "app": {
+    "title": "Gabriel Castro Portfolio",
+    "skipLink": "Skip to main content"
+  },
+  "nav": {
+    "mainAriaLabel": "Main navigation",
+    "logoAriaLabel": "Gabriel Castro, Home",
+    "links": {
+      "home": "Home",
+      "projects": "Projects"
+    },
+    "social": {
+      "linkedin": "In",
+      "github": "GH",
+      "linkedinAriaLabel": "LinkedIn",
+      "githubAriaLabel": "GitHub",
+      "mobileLinkedin": "LinkedIn",
+      "mobileGithub": "GitHub",
+      "mobileLinkedinAriaLabel": "LinkedIn profile",
+      "mobileGithubAriaLabel": "GitHub profile"
+    },
+    "theme": {
+      "toLight": "Light",
+      "toDark": "Dark",
+      "switchToLight": "Switch to light mode",
+      "switchToDark": "Switch to dark mode",
+      "mobileSwitchToLight": "Switch to Light",
+      "mobileSwitchToDark": "Switch to Dark"
+    },
+    "language": {
+      "toEs": "ES",
+      "toEn": "EN",
+      "switchToEs": "Cambiar a español",
+      "switchToEn": "Switch to English"
+    },
+    "contact": "Contact",
+    "contactEmailAriaLabel": "Send email to castrosignals@gmail.com",
+    "menu": {
+      "open": "Open menu",
+      "close": "Close menu"
+    }
+  },
+  "hero": {
+    "label": "Software Engineer · Angular Specialist · Madrid, Spain",
+    "nameFirst": "Gabriel",
+    "nameLast": "Castro",
+    "tagline": "I build the dashboards airlines run their revenue on.",
+    "description": "5+ years turning complex data into clear decisions, from revenue dashboards used by 10+ airlines at Amadeus to logistics platforms visualising 1,000+ processes across Europe.",
+    "cta": {
+      "primary": "View Work ↓",
+      "secondary": "Get in Touch",
+      "groupAriaLabel": "Call to action"
+    },
+    "techStackAriaLabel": "Tech stack"
+  },
+  "projectsPreview": {
+    "label": "Selected Work",
+    "title": "Projects",
+    "subtitle": "Dashboards, data tools, and real-time visualisations. Built for real users at real scale.",
+    "techAriaLabel": "Technologies used",
+    "viewDetails": "View Details →",
+    "viewDetailsAriaPrefix": "View details for",
+    "allProjects": "All Projects →",
+    "items": [
+      {
+        "title": "Amadeus Revenue Analytics",
+        "description": "Built the frontend for a revenue analytics platform used daily by 10+ airline clients. Interactive Angular dashboards with NgRx and cdk-virtual-scroll over 100,000+ records in real time."
+      },
+      {
+        "title": "Zetes Logistics Platform",
+        "description": "Replaced 8 separate logistics dashboards with a unified Angular platform. Created a reusable data grid adopted across 10+ projects. Migrated from Angular v16 to v19, cutting cold-build time by 75% (3.5 min → <50s)."
+      },
+      {
+        "title": "Jingle Jangle",
+        "description": "Real-time audio analysis using Fourier transforms that extracts notes from a microphone stream and converts them to MIDI. Built during Erasmus at Aalto University."
+      },
+      {
+        "title": "Smart Mazda OBD Dashboard",
+        "description": "OBD interface for real-time car diagnostics (speed, RPM, engine load, temperature) visualised with D3.js and streamed to a Node.js server. Personal project from Aalto."
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Data-driven interfaces for airlines and logistics.",
+    "linksAriaLabel": "Footer links",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "email": "Email",
+    "linkedinAriaLabel": "LinkedIn profile",
+    "githubAriaLabel": "GitHub profile",
+    "emailAriaLabel": "Send email",
+    "copyright": "© {year} Gabriel Castro",
+    "builtWith": "Built with Angular"
+  },
+  "projectsPage": {
+    "back": "← Back",
+    "backAriaLabel": "Back to home page",
+    "title": "Journey & Work",
+    "subtitle": "Professional timeline and the projects that shaped my career as a software engineer.",
+    "timeline": {
+      "label": "Career Path",
+      "title": "Timeline",
+      "ariaLabel": "Career timeline",
+      "techAriaLabel": "Technologies",
+      "type": {
+        "work": "Work",
+        "project": "Project",
+        "education": "Education"
+      },
+      "items": [
+        {
+          "title": "Software Engineer",
+          "company": "Zetes , Madrid",
+          "description": "Developed and maintained 8 logistics dashboards in a single Angular application visualising 1,000+ processes. Built a reusable grid component adopted across 10+ projects. Migrated from Angular v16 to v19, cutting cold-build time by 75% (3.5 min → <50s). Pioneered LLM-assisted workflows for code review."
+        },
+        {
+          "title": "Software Engineer",
+          "company": "Alten Technologies → Amadeus , Madrid",
+          "description": "Built the frontend for a revenue management platform used by 10+ airlines. Interactive Angular dashboards using NgRx state management and cdk-virtual-scroll over 100k+ records. Backend contributions in Java, C++ and Python within a 10-person Agile team."
+        },
+        {
+          "title": "Software Developer",
+          "company": "UGR Vice-Rectorate for Internationalisation , Granada",
+          "description": "Built a contact management tool from scratch: automated import from Excel and HTML, personalised email broadcasts to 1,000+ international contacts."
+        },
+        {
+          "title": "Master's in Software Engineering",
+          "company": "University of Granada",
+          "description": "Two-year programme covering advanced software architecture, distributed systems, and research methodology. Overlapped with the Vice-Rectorate role and preceded the move to Amadeus."
+        },
+        {
+          "title": "Erasmus: Machine Learning & Data Science",
+          "company": "Aalto University , Finland",
+          "description": "Macadamia programme: ML, data science, and AI coursework. Built a soccer result prediction model, a time-series analysis project, Jingle Jangle (real-time audio Fourier analysis), and Smart Mazda (OBD car diagnostics dashboard)."
+        },
+        {
+          "title": "Software Developer",
+          "company": "Informática El Corte Inglés / Inetum , Madrid",
+          "description": "Bash automation scripts monitoring 300+ business processes. Assisted in migration to new virtual environments."
+        },
+        {
+          "title": "Robotics Teacher",
+          "company": "Jóvenes Inventores , Madrid",
+          "description": "Led 3 classes of 20–30 students (ages 9–12) in hands-on robotics. Designed the main group project: a robotic cable car built and programmed entirely by the students."
+        },
+        {
+          "title": "Software Developer",
+          "company": "Neovantas , Madrid",
+          "description": "Built 5 interactive SCORM e-learning courses from PowerPoint source material, packaged for LMS deployment."
+        },
+        {
+          "title": "Software Developer",
+          "company": "Rigel Technologies , Madrid",
+          "description": "Java library wrapping 50+ legacy Visual Basic commands, decoupling the codebase from a brittle VB dependency and enabling incremental migration."
+        },
+        {
+          "title": "Software Developer",
+          "company": "SIFRI , Madrid",
+          "description": "Java desktop application with MySQL backend for client management and marketing operations: contact records, campaign tracking, and basic reporting."
+        },
+        {
+          "title": "Bachelor's in Computer Science & Mathematics",
+          "company": "Polytechnic University of Madrid (UPM)",
+          "description": "Double degree covering algorithms, data structures, probability, statistics, linear algebra, and calculus. A quantitative foundation that shapes how I approach data visualization and complex problem-solving."
+        }
+      ]
+    },
+    "detailed": {
+      "label": "Portfolio",
+      "title": "Deep Dives",
+      "technologies": "Technologies",
+      "technologiesAriaLabel": "Technologies used",
+      "keyFeatures": "Key Features",
+      "detailsAriaSuffix": "details",
+      "items": [
+        {
+          "title": "Amadeus Revenue Analytics",
+          "subtitle": "Enterprise Data Visualisation",
+          "description": "Revenue management platform for airlines",
+          "longDescription": "Built the frontend for a revenue management application used by 10+ airline clients to optimise pricing strategies and monitor booking trends. Interactive Angular dashboards using NgRx state management and cdk-virtual-scroll over 100k+ records sourced from Oracle and MongoDB. Contributed to backend services in Java, C++ and Python within a 10-person Agile team.",
+          "features": [
+            "NgRx state management",
+            "cdk-virtual-scroll over 100k+ records",
+            "Real-time booking trends",
+            "Cross-team Agile delivery"
+          ]
+        },
+        {
+          "title": "Zetes Logistics Platform",
+          "subtitle": "Angular Web Components Architecture",
+          "description": "8 dashboards, one app, shared across 10+ projects",
+          "longDescription": "Designed and maintained a consolidation of 8 logistics dashboards into a single Angular application using Web Components and i18n, visualising 1,000+ processes. Built a reusable grid component with filtering, sorting, and custom features adopted across 10+ projects company-wide, cutting per-project UI development time by ~20%. Maintained a shared Angular component library used by 8 teams. Migrated from Angular v16 to v19 and Node v22, cutting cold-build time by 75% (3.5 min → <50s). Introduced LLM-assisted code review workflows, first on the team to adopt this.",
+          "features": [
+            "75% build-time reduction",
+            "Shared component library for 8 teams",
+            "Reusable grid across 10+ projects",
+            "LLM-assisted development"
+          ]
+        },
+        {
+          "title": "Jingle Jangle",
+          "subtitle": "Real-Time Audio Analysis",
+          "description": "Fourier-based note detection and MIDI conversion",
+          "longDescription": "Real-time audio analysis tool built during Erasmus at Aalto University. Uses Fourier transforms to extract musical notes from a live microphone stream and converts them to MIDI output. Python backend for signal processing, React and D3.js for the live frequency visualisation frontend. See it live at castrosignals.github.io/visuals/",
+          "features": [
+            "Live microphone input",
+            "Fourier transform signal processing",
+            "Real-time frequency visualisation",
+            "MIDI note output"
+          ]
+        },
+        {
+          "title": "Smart Mazda OBD Dashboard",
+          "subtitle": "Car Diagnostics Visualisation",
+          "description": "Real-time OBD data streamed and visualised with D3.js",
+          "longDescription": "OBD (On-Board Diagnostics) interface for real-time car telemetry. Reads speed, RPM, engine load, and temperature from the vehicle's OBD port and streams the data to a Node.js server. Visualised with D3.js and React. Personal project from Aalto University. Source: github.com/castrosignals/Smart-Mazda-On-Board",
+          "features": [
+            "Real-time OBD telemetry",
+            "Live D3.js gauges and charts",
+            "Node.js data server",
+            "Open source"
+          ]
+        }
+      ]
+    },
+    "contactCta": {
+      "title": "Need an Angular specialist who ships dashboards at scale?",
+      "text": "Open to roles where complex data meets clean UI. Let's talk.",
+      "button": "castrosignals@gmail.com →"
+    }
+  },
+  "notFound": {
+    "label": "Error 404",
+    "titleLine1": "Page",
+    "titleLine2": "not",
+    "titleLine3": "found",
+    "description": "The page you're looking for doesn't exist or has moved. If you got here from a link on the site, that's a bug worth knowing about.",
+    "actions": {
+      "ariaLabel": "404 navigation",
+      "home": "← Back to Home",
+      "projects": "View Projects"
+    }
+  }
+}

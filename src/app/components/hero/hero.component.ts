@@ -1,4 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+
+import { LanguageService } from '../../i18n/language.service';
 
 @Component({
   selector: 'app-hero',
@@ -9,6 +11,15 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeroComponent {
-  readonly name = 'Gabriel Castro';
-  readonly tagline = 'I build the dashboards airlines run their revenue on.';
+  private readonly i18n = inject(LanguageService);
+  readonly t = this.i18n.t.bind(this.i18n);
+  readonly techStack: readonly string[] = [
+    'Angular',
+    'TypeScript',
+    'RxJS',
+    'NgRx',
+    'Java',
+    'Python',
+    'D3.js'
+  ];
 }

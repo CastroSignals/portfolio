@@ -2,6 +2,12 @@ import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
 test.describe('Home (/)', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.addInitScript(() => {
+      window.localStorage.setItem('app-language', 'en');
+    });
+  });
+
   test('renders the page with main landmarks', async ({ page }) => {
     await page.goto('/');
     await expect(page.locator('nav[aria-label="Main navigation"]')).toBeVisible();

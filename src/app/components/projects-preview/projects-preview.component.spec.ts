@@ -3,6 +3,7 @@ import { provideRouter } from '@angular/router';
 import { beforeEach, describe, expect, it } from 'vitest';
 
 import { ProjectsPreviewComponent } from './projects-preview.component';
+import { LanguageService } from '../../i18n/language.service';
 
 describe('ProjectsPreviewComponent', () => {
   let fixture: ComponentFixture<ProjectsPreviewComponent>;
@@ -13,17 +14,19 @@ describe('ProjectsPreviewComponent', () => {
       providers: [provideRouter([])]
     }).compileComponents();
 
+    TestBed.inject(LanguageService).setLanguage('en');
+
     fixture = TestBed.createComponent(ProjectsPreviewComponent);
     fixture.detectChanges();
   });
 
   it('exposes a non-empty projects list', () => {
-    expect(fixture.componentInstance.projects.length).toBeGreaterThan(0);
+    expect(fixture.componentInstance.projects().length).toBeGreaterThan(0);
   });
 
   it('renders the first project title in the template', () => {
     const text = (fixture.nativeElement as HTMLElement).textContent ?? '';
-    const firstTitle = fixture.componentInstance.projects[0].title;
+    const firstTitle = fixture.componentInstance.projects()[0].title;
     expect(text).toContain(firstTitle);
   });
 

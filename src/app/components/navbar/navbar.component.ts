@@ -1,5 +1,13 @@
-import { Component, HostListener, signal, ChangeDetectionStrategy } from '@angular/core';
+import { Component, HostListener, signal, ChangeDetectionStrategy, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+
+import { LanguageService } from '../../i18n/language.service';
+
+interface NavLink {
+  path: string;
+  labelKey: string;
+  exact: boolean;
+}
 
 @Component({
   selector: 'app-navbar',
@@ -10,13 +18,17 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavbarComponent {
+  private readonly i18n = inject(LanguageService);
+  readonly t = this.i18n.t.bind(this.i18n);
+  readonly language = this.i18n.language;
+
   readonly isScrolled = signal(false);
   readonly isMobileMenuOpen = signal(false);
   readonly isDarkTheme = signal(true);
 
-  readonly navLinks = [
-    { path: '/', label: 'Home', exact: true },
-    { path: '/projects', label: 'Projects', exact: false }
+  readonly navLinks: readonly NavLink[] = [
+    { path: '/', labelKey: 'nav.links.home', exact: true },
+    { path: '/projects', labelKey: 'nav.links.projects', exact: false }
   ];
 
   @HostListener('window:scroll')
@@ -25,7 +37,7 @@ export class NavbarComponent {
   }
 
   toggleMobileMenu() {
-    this.isMobileMenuOpen.update(open => !open);
+    this.isMobileMenuOpen.update((open) => !open);
   }
 
   closeMobileMenu() {
@@ -33,8 +45,12 @@ export class NavbarComponent {
   }
 
   toggleTheme() {
-    this.isDarkTheme.update(dark => !dark);
+    this.isDarkTheme.update((dark) => !dark);
     const theme = this.isDarkTheme() ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', theme);
+  }
+
+  toggleLanguage() {
+    this.i18n.toggleLanguage();
   }
 }

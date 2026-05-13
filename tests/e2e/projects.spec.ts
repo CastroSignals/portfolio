@@ -2,6 +2,12 @@ import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
 test.describe('Projects (/projects)', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.addInitScript(() => {
+      window.localStorage.setItem('app-language', 'en');
+    });
+  });
+
   test('renders the page heading', async ({ page }) => {
     await page.goto('/projects');
     const h1 = page.getByRole('heading', { level: 1 });
